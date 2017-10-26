@@ -26,16 +26,16 @@
     CGFloat height = CGRectGetHeight(animationView.frame);
     CGFloat radius = height/2;
     CGRect myRect = CGRectMake((width - radius)/2, (height - radius)/2, radius, radius);
-        //背景
+        //background
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:animationView.bounds cornerRadius:0];
-        //镂空
+        //circle
     UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:myRect];
     [path appendPath:circlePath];
     [path setUsesEvenOddFillRule:YES];
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
     circleLayer.path = path.CGPath;
     circleLayer.frame = animationView.bounds;
-    circleLayer.fillRule = kCAFillRuleEvenOdd;//中间镂空的关键点 填充规则
+    circleLayer.fillRule = kCAFillRuleEvenOdd;  // key code 
     circleLayer.fillColor = [UIColor blackColor].CGColor;
     circleLayer.opacity = 0;
     animationView.layer.masksToBounds = YES;
